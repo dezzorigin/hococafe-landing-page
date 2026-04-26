@@ -63,3 +63,15 @@ A premium, modern, and highly responsive landing page designed for **Hoco Coffee
 1. Clone the repository:
    ```bash
    git clone [https://github.com/nblauliadka/hococafe-landing-page.git](https://github.com/nblauliadka/hococafe-landing-page.git)
+   Navigate to the project directory:
+    Bash
+
+2. cd hococafe-landing-page
+
+3. Open index.html in your browser or use an extension like VSCode Live Server.
+
+👨‍💻 Author
+
+Built with ❤️ and excessive amounts of coffee by (Nabil A. Dika).
+
+Spot WFC, nge-chill, dan quality time paling aesthetic di Banda Aceh.
