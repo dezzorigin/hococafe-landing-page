@@ -120,177 +120,291 @@
 <body class="bg-coffee-50 text-coffee-900 font-sans antialiased selection:bg-coffee-300 selection:text-coffee-900">
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] transform -translate-y-full transition-transform duration-300 flex flex-col justify-center items-center gap-8">
-        <button id="close-menu" class="absolute top-6 right-6 text-3xl text-coffee-800">
+    <div id="mobile-menu" class="fixed inset-0 bg-coffee-900/95 backdrop-blur-xl z-[60] transform -translate-y-full transition-transform duration-300 flex flex-col justify-center items-center gap-8 text-white">
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl text-coffee-200 hover:text-white transition-colors" aria-label="Tutup Menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <a href="#suasana" class="mobile-link text-2xl font-serif text-coffee-900 hover:text-coffee-500">Suasana</a>
-        <a href="#menu" class="mobile-link text-2xl font-serif text-coffee-900 hover:text-coffee-500">Menu</a>
-        <a href="#info" class="mobile-link text-2xl font-serif text-coffee-900 hover:text-coffee-500">Info & Reservasi</a>
-        <a href="https://wa.me/6281264065722" class="mobile-link mt-4 bg-coffee-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-coffee-900">
-            Pesan via WA
+        <a href="#suasana" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Suasana</a>
+        <a href="#menu" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Menu</a>
+        <a href="#ulasan" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Ulasan</a>
+        <a href="#faq" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">FAQ</a>
+        <a href="#info" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Info & Reservasi</a>
+
+        <!-- Live Status in Mobile Menu -->
+        <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-xs font-medium border border-white/20">
+            <span id="mobile-store-status-dot" class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span id="mobile-store-status-text">Buka Sekarang</span>
+        </div>
+
+        <a href="https://wa.me/6281264065722" target="_blank" class="mobile-link mt-2 bg-coffee-500 text-white px-8 py-3.5 rounded-full text-base font-semibold hover:bg-coffee-600 transition-all shadow-lg flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WA
         </a>
     </div>
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center glass rounded-b-2xl mx-2 md:mx-auto mt-2 shadow-sm">
-            <a href="#" class="font-serif text-xl md:text-2xl font-bold tracking-tighter text-coffee-800 flex items-center gap-2">
-                <i class="fa-solid fa-mug-hot text-coffee-500"></i> Hoco.
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center glass rounded-2xl mx-2 md:mx-auto mt-2 shadow-sm border border-white/50">
+            <a href="#" class="font-serif text-xl md:text-2xl font-bold tracking-tighter text-coffee-800 flex items-center gap-2 group">
+                <span class="w-9 h-9 rounded-full bg-coffee-800 text-white flex items-center justify-center text-sm shadow-md group-hover:bg-coffee-600 transition-colors">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </span>
+                <span>Hoco<span class="text-coffee-500">.</span></span>
             </a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex gap-8 font-medium text-sm text-coffee-800">
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm text-coffee-800">
                 <a href="#suasana" class="hover:text-coffee-500 transition-colors">Suasana</a>
                 <a href="#menu" class="hover:text-coffee-500 transition-colors">Menu</a>
+                <a href="#ulasan" class="hover:text-coffee-500 transition-colors">Ulasan</a>
+                <a href="#faq" class="hover:text-coffee-500 transition-colors">FAQ</a>
                 <a href="#info" class="hover:text-coffee-500 transition-colors">Info & Reservasi</a>
             </div>
             
-            <!-- Desktop Action -->
-            <a href="#info" class="hidden md:block bg-coffee-800 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-coffee-900 transition-all hover:shadow-lg">
-                Pesan Sekarang
-            </a>
+            <!-- Desktop Action & Status Badge -->
+            <div class="hidden md:flex items-center gap-4">
+                <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-coffee-100/80 border border-coffee-200 text-xs font-semibold text-coffee-800">
+                    <span id="nav-store-status-dot" class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span id="nav-store-status-text">Buka</span>
+                </div>
+                <a href="#info" class="bg-coffee-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-coffee-900 transition-all hover:shadow-lg flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-xs"></i> Reservasi
+                </a>
+            </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="hamburger-btn" class="md:hidden text-coffee-800 text-2xl">
+            <button id="hamburger-btn" class="md:hidden text-coffee-800 text-2xl p-1" aria-label="Buka Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- 1. Hero Section -->
-    <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-20">
+    <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000" alt="Cafe Background" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-b from-coffee-900/70 via-coffee-900/50 to-coffee-50"></div>
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000" alt="Cafe Background" class="w-full h-full object-cover scale-105 animate-pulse-slow" />
+            <div class="absolute inset-0 bg-gradient-to-b from-coffee-900/80 via-coffee-900/60 to-coffee-50"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto mt-10 md:mt-16 reveal">
-            <span class="inline-block py-1.5 px-4 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold tracking-wider mb-6 uppercase border border-white/40">
-                <i class="fa-solid fa-location-dot mr-2 text-red-400"></i>Banda Aceh's Finest
-            </span>
+        <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto mt-6 md:mt-10 reveal">
+            <!-- Badges Bar -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6">
+                <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold tracking-wider uppercase border border-white/30 shadow-sm">
+                    <i class="fa-solid fa-location-dot text-red-400"></i> Banda Aceh
+                </span>
+                <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-emerald-500/30 backdrop-blur-md text-emerald-200 text-[10px] sm:text-xs font-semibold tracking-wider uppercase border border-emerald-400/40 shadow-sm">
+                    <span id="hero-store-status-dot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="hero-store-status-text">Buka Hari Ini</span>
+                </span>
+            </div>
             
             <!-- Highly Responsive Heading -->
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-[1.1] md:leading-tight drop-shadow-lg">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-[1.15] md:leading-tight drop-shadow-xl">
                 Lebih dari Sekadar Kopi.<br>
-                <span class="text-coffee-300 italic">Ini Titik Temu Anda.</span>
+                <span class="text-coffee-300 italic font-normal">Ini Titik Temu Anda.</span>
             </h1>
             
-            <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md px-2">
-                Hoco Coffee Lambhuk – Spot WFC, nge-chill, dan quality time paling aesthetic di Banda Aceh.
+            <p class="text-base sm:text-lg md:text-xl text-coffee-100 mb-8 sm:mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow px-2">
+                Hoco Coffee Lambhuk – Tempat WFC paling nyaman, ruang bersantai aesthetic, dan quality time hangat di jantung Banda Aceh.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full px-4 sm:px-0">
-                <a href="#menu" class="px-8 py-3.5 sm:py-4 bg-white text-coffee-900 rounded-full font-semibold hover:bg-coffee-100 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] w-full sm:w-auto text-sm sm:text-base">
-                    Lihat Menu
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full px-4 sm:px-0 mb-12 sm:mb-16">
+                <a href="#menu" class="px-8 py-3.5 sm:py-4 bg-white text-coffee-900 rounded-full font-bold hover:bg-coffee-100 transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] w-full sm:w-auto text-sm sm:text-base flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-mug-hot text-coffee-600"></i> Lihat Menu Favorite
                 </a>
-                <a href="#info" class="px-8 py-3.5 sm:py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 backdrop-blur-sm transition-all hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base">
-                    <i class="fa-solid fa-car-side"></i> Pesan (Drive-thru)
+                <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Drive-thru" target="_blank" class="px-8 py-3.5 sm:py-4 bg-white/10 border border-white/40 text-white rounded-full font-semibold hover:bg-white/20 backdrop-blur-md transition-all hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <i class="fa-solid fa-car-side text-amber-300"></i> Pesan Drive-thru
                 </a>
+            </div>
+
+            <!-- Quick Stats Bar -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 max-w-2xl mx-auto text-white shadow-xl">
+                <div class="text-center">
+                    <div class="text-lg sm:text-2xl font-bold font-serif text-amber-300 flex items-center justify-center gap-1">
+                        4.9 <i class="fa-solid fa-star text-xs sm:text-sm text-amber-400"></i>
+                    </div>
+                    <div class="text-[10px] sm:text-xs text-coffee-200 mt-0.5">Rating Google</div>
+                </div>
+                <div class="text-center border-x border-white/10 px-2">
+                    <div class="text-lg sm:text-2xl font-bold font-serif text-white flex items-center justify-center gap-1">
+                        100<span class="text-xs sm:text-sm font-sans font-normal text-coffee-300">Mbps</span>
+                    </div>
+                    <div class="text-[10px] sm:text-xs text-coffee-200 mt-0.5">High Speed WiFi</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-lg sm:text-2xl font-bold font-serif text-white flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-parking text-emerald-400 text-base sm:text-xl"></i> Gratis
+                    </div>
+                    <div class="text-[10px] sm:text-xs text-coffee-200 mt-0.5">Parkir Luas</div>
+                </div>
             </div>
         </div>
 
         <!-- Scroll indicator -->
-        <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce text-coffee-500">
-            <i class="fa-solid fa-chevron-down text-xl md:text-2xl opacity-70"></i>
+        <div class="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-10 animate-bounce text-coffee-300">
+            <a href="#suasana" aria-label="Gulir ke bawah">
+                <i class="fa-solid fa-chevron-down text-lg md:text-2xl opacity-80"></i>
+            </a>
         </div>
     </section>
 
-    <!-- 2. Highlight Suasana & Layanan (Bento Grid) -->
+    <!-- 2. Highlight Suasana & Layanan (Bento Grid Redesigned) -->
     <section id="suasana" class="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
         <div class="text-center mb-10 md:mb-16 reveal">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-3 md:mb-4">Mengapa Hoco Coffee?</h2>
-            <p class="text-coffee-600 text-sm md:text-base">Dirancang khusus untuk produktivitas dan relaksasi Anda.</p>
+            <span class="text-xs font-bold uppercase tracking-widest text-coffee-500 bg-coffee-100 px-3 py-1 rounded-full border border-coffee-200">Pengalaman Terbaik</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mt-3 mb-3 md:mb-4 text-coffee-900">Mengapa Hoco Coffee?</h2>
+            <p class="text-coffee-600 text-sm md:text-base max-w-xl mx-auto">Dirancang khusus dengan detail kenyamanan untuk produktivitas kerja, hangout santai, hingga pertemuan keluarga.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
-            <!-- Vibe -->
-            <div class="col-span-1 md:col-span-2 row-span-2 rounded-[2rem] overflow-hidden relative group reveal">
-                <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=800" alt="Cafe Vibes" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/90 via-coffee-900/30 to-transparent p-6 md:p-8 flex flex-col justify-end">
-                    <h3 class="text-white text-2xl md:text-3xl font-serif font-bold mb-2">Vibe & Aesthetic</h3>
-                    <p class="text-coffee-200 text-sm md:text-base">Nyaman, Romantis, Santai, Trendi & Tenang. Cocok untuk semua mood Anda.</p>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[220px] md:auto-rows-[260px]">
+            <!-- Main Card: Aesthetic Vibe -->
+            <div class="col-span-1 md:col-span-2 row-span-2 rounded-[2.5rem] overflow-hidden relative group reveal shadow-md hover:shadow-2xl transition-all duration-500">
+                <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=1000" alt="Cafe Atmosphere" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/90 via-coffee-900/40 to-transparent p-6 md:p-10 flex flex-col justify-end">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-medium w-max mb-3 border border-white/30">
+                        <i class="fa-solid fa-sparkles text-amber-300"></i> Atmosphere & Comfort
+                    </span>
+                    <h3 class="text-white text-2xl md:text-4xl font-serif font-bold mb-3">Vibe Modern & Warm Aesthetic</h3>
+                    <p class="text-coffee-200 text-xs md:text-sm leading-relaxed mb-4">Ruangan berpendingin udara yang sejuk, pencahayaan hangat romantis, serta playlist musik santai yang menemani setiap detik momen Anda.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] md:text-xs bg-white/10 backdrop-blur-md text-white px-2.5 py-1 rounded-lg border border-white/20">AC Sejuk</span>
+                        <span class="text-[10px] md:text-xs bg-white/10 backdrop-blur-md text-white px-2.5 py-1 rounded-lg border border-white/20">Outdoor Garden</span>
+                        <span class="text-[10px] md:text-xs bg-white/10 backdrop-blur-md text-white px-2.5 py-1 rounded-lg border border-white/20">Non-Smoking VIP</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Fasilitas -->
-            <div class="col-span-1 md:col-span-2 rounded-[2rem] bg-white p-6 md:p-8 border border-coffee-100 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-center group">
-                <div class="text-coffee-500 text-2xl md:text-3xl mb-3 md:mb-4 group-hover:-translate-y-2 transition-transform"><i class="fa-solid fa-crown"></i></div>
-                <h3 class="text-lg md:text-xl font-bold mb-2">Fasilitas Tipe Bos</h3>
-                <p class="text-xs md:text-sm text-coffee-600">Spot WFC nyaman colokan banyak, Ruang VIP/Private, Ramah anak (Baby chair & menu khusus), dan Toilet bersih.</p>
-            </div>
-
-            <!-- Parkir -->
-            <div class="col-span-1 rounded-[2rem] bg-coffee-800 text-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-center items-center text-center group">
-                <div class="bg-white/20 p-3 md:p-4 rounded-full mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-square-parking text-xl md:text-2xl"></i>
+            <!-- Card 2: Fasilitas Utama -->
+            <div class="col-span-1 md:col-span-2 rounded-[2.5rem] bg-white p-6 md:p-8 border border-coffee-100 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="w-12 h-12 rounded-2xl bg-coffee-100 text-coffee-800 flex items-center justify-center text-xl group-hover:bg-coffee-800 group-hover:text-white transition-all duration-300 shadow-sm">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-coffee-500 bg-coffee-50 px-3 py-1 rounded-full border border-coffee-200">Surga WFC</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-serif font-bold text-coffee-900 mb-2">Fasilitas Work From Cafe Terlengkap</h3>
+                    <p class="text-xs md:text-sm text-coffee-600 leading-relaxed">Stop kontak melimpah di setiap sudut meja, WiFi serat optik super cepat, plus ruang VIP privat untuk meeting/diskusi penting.</p>
                 </div>
-                <h3 class="font-bold mb-1 text-sm md:text-base">Parkir Luas</h3>
-                <p class="text-[10px] md:text-xs text-coffee-200">100% Gratis & Aman</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="text-[10px] md:text-xs bg-coffee-50 text-coffee-800 px-3 py-1 rounded-full border border-coffee-200 font-medium"><i class="fa-solid fa-plug text-coffee-500 mr-1"></i> Power Outlets</span>
+                    <span class="text-[10px] md:text-xs bg-coffee-50 text-coffee-800 px-3 py-1 rounded-full border border-coffee-200 font-medium"><i class="fa-solid fa-wifi text-coffee-500 mr-1"></i> WiFi High Speed</span>
+                    <span class="text-[10px] md:text-xs bg-coffee-50 text-coffee-800 px-3 py-1 rounded-full border border-coffee-200 font-medium"><i class="fa-solid fa-door-closed text-coffee-500 mr-1"></i> Private Room</span>
+                </div>
             </div>
 
-            <!-- Layanan Cepat -->
-            <div class="col-span-1 rounded-[2rem] bg-gradient-to-br from-coffee-100 to-coffee-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between">
-                <h3 class="font-bold text-base md:text-lg mb-2">Layanan Cepat</h3>
-                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-coffee-800 font-medium">
-                    <li><i class="fa-solid fa-check text-coffee-500 mr-2"></i>Dine-in</li>
-                    <li><i class="fa-solid fa-check text-coffee-500 mr-2"></i>Takeaway</li>
-                    <li><i class="fa-solid fa-bolt text-coffee-500 mr-2"></i>Express Delivery</li>
-                    <li><i class="fa-solid fa-car text-coffee-500 mr-2"></i>Drive-through</li>
-                </ul>
+            <!-- Card 3: Area Parkir -->
+            <div class="col-span-1 rounded-[2.5rem] bg-coffee-800 text-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between group relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 opacity-10 text-9xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-square-parking"></i>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-square-parking"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-1">Parkir Luas & Aman</h3>
+                    <p class="text-xs text-coffee-200 mb-2">Kapasitas mobil & motor sangat memadai dengan petugas penjaga parkir.</p>
+                    <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-emerald-900/50 px-2.5 py-1 rounded-md border border-emerald-500/30">100% Gratis</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Kemudahan Layanan -->
+            <div class="col-span-1 rounded-[2.5rem] bg-gradient-to-br from-coffee-100 to-coffee-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between border border-coffee-300/40">
+                <div class="flex justify-between items-center">
+                    <span class="w-10 h-10 rounded-xl bg-white text-coffee-800 flex items-center justify-center text-lg shadow-sm">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </span>
+                    <span class="text-[10px] font-bold uppercase bg-coffee-800 text-white px-2.5 py-0.5 rounded-full">Serba Cepat</span>
+                </div>
+                <div>
+                    <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 mb-2">Pilihan Layanan</h3>
+                    <ul class="space-y-1.5 text-xs text-coffee-800 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Dine-In Nyaman</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Takeaway Cepat</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-car text-coffee-700"></i> Drive-thru Tanpa Turun</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Menu Populer (Grid Interaktif) -->
-    <section id="menu" class="py-16 md:py-24 bg-white">
+    <!-- 3. Menu Populer (Grid Interaktif dengan Filtering) -->
+    <section id="menu" class="py-16 md:py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
-            <div class="flex justify-between items-end mb-8 md:mb-12 reveal">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 reveal gap-4">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-2">Menu Andalan</h2>
-                    <p class="text-coffee-600 text-sm md:text-base">Kurasi rasa terbaik dari barista kami.</p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-coffee-500 bg-coffee-50 px-3 py-1 rounded-full border border-coffee-200">Cita Rasa Pilihan</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold mt-2 text-coffee-900">Menu Rekomendasi</h2>
+                    <p class="text-coffee-600 text-sm md:text-base mt-1">Kurasi minuman espresso & makanan lezat favorit pengunjung Hoco Coffee.</p>
                 </div>
-                <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20minta%20daftar%20menu%20lengkapnya%20dong!" target="_blank" class="hidden md:flex items-center gap-2 text-coffee-800 font-semibold hover:text-coffee-500 transition-colors">
-                    Lihat Semua <i class="fa-solid fa-arrow-right"></i>
+                <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20minta%20daftar%20menu%20lengkapnya%20dong!" target="_blank" class="hidden md:inline-flex items-center gap-2 text-coffee-800 font-bold hover:text-coffee-500 transition-colors bg-coffee-50 px-5 py-2.5 rounded-full border border-coffee-200 text-sm">
+                    <i class="fa-brands fa-whatsapp text-green-600 text-base"></i> Minta Menu Lengkap PDF
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-8 md:mb-12 reveal" id="menu-filter-container">
+                <button data-category="all" class="menu-filter-btn active px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-800 text-white shadow-md">
+                    <i class="fa-solid fa-layer-group mr-1.5"></i> Semua
+                </button>
+                <button data-category="kopi" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                    <i class="fa-solid fa-mug-hot mr-1.5 text-coffee-600"></i> Kopi
+                </button>
+                <button data-category="non-kopi" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                    <i class="fa-solid fa-glass-water mr-1.5 text-amber-600"></i> Non-Kopi
+                </button>
+                <button data-category="makanan" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                    <i class="fa-solid fa-utensils mr-1.5 text-orange-600"></i> Makanan
+                </button>
+                <button data-category="dessert" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                    <i class="fa-solid fa-ice-cream mr-1.5 text-pink-600"></i> Dessert
+                </button>
+            </div>
+
+            <!-- Menu Cards Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="menu-items-grid">
 
                 <!-- Menu 1 -->
-                <div class="group rounded-2xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 reveal border border-coffee-100 flex flex-col">
+                <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="kopi">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
-                        <span class="absolute top-4 right-4 z-10 bg-red-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">Best Seller</span>
+                        <span class="absolute top-4 right-4 z-10 bg-red-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                            <i class="fa-solid fa-fire"></i> Best Seller
+                        </span>
                         <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&q=80&w=600" alt="Sanger Espresso Ice" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Sanger Espresso Ice</h3>
-                            <span class="font-bold text-coffee-500 shrink-0">Rp 25k</span>
+                            <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Rp 25k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-4 flex-grow">Perpaduan klasik kopi sanger khas Aceh dengan sentuhan espresso modern yang disajikan dingin.</p>
-                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Sanger%20Espresso%20Ice%20dong!" target="_blank" class="block text-center w-full py-2.5 border border-coffee-800 text-coffee-800 rounded-lg hover:bg-coffee-800 hover:text-white transition-colors text-sm font-medium mt-auto">Pesan via WA</a>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Perpaduan klasik kopi sanger khas Aceh dengan sentuhan espresso modern yang segar & creamy.</p>
+                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Sanger%20Espresso%20Ice%20dong!" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Pesan via WA
+                        </a>
                     </div>
                 </div>
 
                 <!-- Menu 2 -->
-                <div class="group rounded-2xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 reveal border border-coffee-100 flex flex-col">
+                <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="kopi">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
+                        <span class="absolute top-4 right-4 z-10 bg-amber-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">Favorit WFC</span>
                         <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600" alt="Kopi Susu Aren" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Kopi Susu Aren</h3>
-                            <span class="font-bold text-coffee-500 shrink-0">Rp 22k</span>
+                            <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Rp 22k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-4 flex-grow">Creamy, manis alami dari gula aren asli, dan biji kopi pilihan. Teman nugas paling pas.</p>
-                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Kopi%20Susu%20Aren%20dong!" target="_blank" class="block text-center w-full py-2.5 border border-coffee-800 text-coffee-800 rounded-lg hover:bg-coffee-800 hover:text-white transition-colors text-sm font-medium mt-auto">Pesan via WA</a>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Creamy, manis alami dari gula aren asli pilihan, dan biji kopi arabika khas. Teman nugas ideal.</p>
+                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Kopi%20Susu%20Aren%20dong!" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Pesan via WA
+                        </a>
                     </div>
                 </div>
 
-                <!-- Menu 3 (FIXED IMAGE) -->
-                <div class="group rounded-2xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 reveal border border-coffee-100 flex flex-col">
+                <!-- Menu 3 -->
+                <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="dessert">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
                         <span class="absolute top-4 right-4 z-10 bg-coffee-800 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">Signature Dessert</span>
                         <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600" alt="Brownies Ice Cream" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -298,68 +412,215 @@
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Brownies Ice Cream</h3>
-                            <span class="font-bold text-coffee-500 shrink-0">Rp 28k</span>
+                            <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Rp 28k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-4 flex-grow">Fudgy brownies hangat disajikan dengan es krim vanilla premium di atasnya.</p>
-                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Brownies%20Ice%20Cream%20dong!" target="_blank" class="block text-center w-full py-2.5 border border-coffee-800 text-coffee-800 rounded-lg hover:bg-coffee-800 hover:text-white transition-colors text-sm font-medium mt-auto">Pesan via WA</a>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Fudgy brownies hangat yang lumer di mulut disajikan dengan scoop es krim vanilla lembut.</p>
+                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Brownies%20Ice%20Cream%20dong!" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Pesan via WA
+                        </a>
                     </div>
                 </div>
 
                 <!-- Menu 4 -->
-                <div class="group rounded-2xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 reveal border border-coffee-100 flex flex-col">
+                <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="makanan">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
                         <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=600" alt="Nasi Goreng Kampung" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Nasi Goreng Kampung</h3>
-                            <span class="font-bold text-coffee-500 shrink-0">Rp 30k</span>
+                            <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Rp 30k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-4 flex-grow">Pilihan sarapan/makan siang nikmat dengan bumbu rempah rahasia ala Hoco.</p>
-                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Nasi%20Goreng%20Kampung%20dong!" target="_blank" class="block text-center w-full py-2.5 border border-coffee-800 text-coffee-800 rounded-lg hover:bg-coffee-800 hover:text-white transition-colors text-sm font-medium mt-auto">Pesan via WA</a>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Nasi goreng gurih dengan bumbu rempah warisan, kerupuk renyah, dan telur mata sapi.</p>
+                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Nasi%20Goreng%20Kampung%20dong!" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Pesan via WA
+                        </a>
                     </div>
                 </div>
 
                 <!-- Menu 5 -->
-                <div class="group rounded-2xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 reveal border border-coffee-100 flex flex-col">
+                <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="makanan">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
                         <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=600" alt="Mie Rebus Hoco" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Mie Rebus Spesial</h3>
-                            <span class="font-bold text-coffee-500 shrink-0">Rp 28k</span>
+                            <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Rp 28k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-4 flex-grow">Mie hangat dengan kuah kaldu kental gurih, telur setengah matang, siap menghangatkan harimu.</p>
-                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Mie%20Rebus%20Spesial%20dong!" target="_blank" class="block text-center w-full py-2.5 border border-coffee-800 text-coffee-800 rounded-lg hover:bg-coffee-800 hover:text-white transition-colors text-sm font-medium mt-auto">Pesan via WA</a>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Mie hangat kuah kaldu rempah kental gurih, dengan telur setengah matang dan potongan cabai segar.</p>
+                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Mie%20Rebus%20Spesial%20dong!" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Pesan via WA
+                        </a>
                     </div>
                 </div>
 
                 <!-- Menu 6 -->
-                <div class="group rounded-2xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 reveal border border-coffee-100 flex flex-col">
+                <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="non-kopi">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
                         <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80&w=600" alt="Teh Premium" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Pilihan Teh Premium</h3>
-                            <span class="font-bold text-coffee-500 shrink-0">Mulai Rp 20k</span>
+                            <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Mulai Rp 20k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-4 flex-grow">Koleksi teh chamomile, earl grey, dan green tea premium untuk suasana menenangkan.</p>
-                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20boleh%20minta%20info%20varian%20Teh%20Premiumnya?" target="_blank" class="block text-center w-full py-2.5 border border-coffee-800 text-coffee-800 rounded-lg hover:bg-coffee-800 hover:text-white transition-colors text-sm font-medium mt-auto">Tanya via WA</a>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Pilihan Chamomile, Earl Grey, Jasmine, dan Matcha artisan yang menenangkan.</p>
+                        <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20boleh%20minta%20info%20varian%20Teh%20Premiumnya?" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Tanya via WA
+                        </a>
                     </div>
                 </div>
 
             </div>
 
             <!-- Mobile Only 'Lihat Semua' button -->
-            <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20boleh%20minta%20daftar%20menu%20lengkapnya?" target="_blank" class="md:hidden flex justify-center items-center gap-2 w-full mt-8 py-3.5 bg-coffee-100 text-coffee-900 font-semibold rounded-xl hover:bg-coffee-200 transition-colors text-sm">
-                Lihat Menu Lengkap <i class="fa-solid fa-arrow-right"></i>
+            <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20boleh%20minta%20daftar%20menu%20lengkapnya?" target="_blank" class="md:hidden flex justify-center items-center gap-2 w-full mt-8 py-3.5 bg-coffee-800 text-white font-bold rounded-2xl hover:bg-coffee-900 transition-colors text-sm shadow-md">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Minta Menu Lengkap PDF
             </a>
         </div>
     </section>
 
-    <!-- 4. Info Cepat & Reservasi -->
+    <!-- 4. Testimoni Pelanggan -->
+    <section id="ulasan" class="py-16 md:py-24 bg-coffee-50 border-y border-coffee-200/50">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-coffee-600 bg-coffee-100 px-3 py-1 rounded-full border border-coffee-200">Suara Pelanggan</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mt-3 text-coffee-900">Apa Kata Mereka?</h2>
+                <p class="text-coffee-600 text-sm md:text-base max-w-xl mx-auto mt-2">Ulasan jujur dari pengunjung setia Hoco Coffee Lambhuk Banda Aceh.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl border border-coffee-100 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Tempat WFC paling tenang & nyaman di Banda Aceh. WiFi super kencang, colokan ada di mana-mana. Sangernya nagih banget!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-coffee-100">
+                        <div class="w-10 h-10 rounded-full bg-coffee-200 font-bold text-coffee-800 flex items-center justify-center text-sm">
+                            RA
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-coffee-900">Rahmat Amanda</h4>
+                            <p class="text-[11px] text-coffee-500">Software Engineer • Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl border border-coffee-100 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Vibenya dapet banget buat nongkrong sore atau malam. Parkiran luas mobil & motor aman. Dessert Brownies Ice Cream-nya wajib dicoba!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-coffee-100">
+                        <div class="w-10 h-10 rounded-full bg-coffee-300 font-bold text-coffee-900 flex items-center justify-center text-sm">
+                            NS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-coffee-900">Nadia Safira</h4>
+                            <p class="text-[11px] text-coffee-500">Content Creator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl border border-coffee-100 shadow-sm hover:shadow-xl transition-all duration-300 reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Layanan drive-thru sangat praktis pas buru-buru berangkat kantor! Baristanya ramah & pesanan selalu konsisten rasanya."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-coffee-100">
+                        <div class="w-10 h-10 rounded-full bg-coffee-800 font-bold text-white flex items-center justify-center text-sm">
+                            MF
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-coffee-900">M. Farhan</h4>
+                            <p class="text-[11px] text-coffee-500">Pengusaha Muda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Interactive FAQ Section -->
+    <section id="faq" class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-coffee-600 bg-coffee-50 px-3 py-1 rounded-full border border-coffee-200">Pertanyaan Populer</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mt-3 text-coffee-900">Sering Ditanyakan (FAQ)</h2>
+                <p class="text-coffee-600 text-sm md:text-base mt-2">Semua hal yang ingin Anda ketahui sebelum berkunjung ke Hoco Coffee.</p>
+            </div>
+
+            <div class="space-y-4 reveal" id="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
+                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                        <span><i class="fa-solid fa-wifi text-coffee-500 mr-3"></i> Apakah tersedia WiFi & stop kontak untuk WFC?</span>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-6 md:px-6 text-xs md:text-sm text-coffee-700 leading-relaxed border-t border-coffee-200/50 pt-4">
+                        Ya, tentu! Kami menyediakan fasilitas WiFi serat optik berkecepatan tinggi hingga 100 Mbps serta stop kontak listrik di hampir seluruh area meja seating untuk mendukung produktivitas kerja Anda.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
+                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                        <span><i class="fa-solid fa-door-closed text-coffee-500 mr-3"></i> Bagaimana cara reservasi ruang VIP/Private?</span>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-6 md:px-6 text-xs md:text-sm text-coffee-700 leading-relaxed border-t border-coffee-200/50 pt-4">
+                        Anda dapat langsung menghubungi admin kami via WhatsApp resmi (+62 812-6406-5722) untuk informasi ketersediaan tanggal dan paket meeting khusus ruang VIP.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
+                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                        <span><i class="fa-solid fa-car text-coffee-500 mr-3"></i> Apakah ada layanan Drive-Thru & Parkir Gratis?</span>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-6 md:px-6 text-xs md:text-sm text-coffee-700 leading-relaxed border-t border-coffee-200/50 pt-4">
+                        Ya! Kami memiliki jalur khusus Drive-Thru bagi Anda yang membutuhkan pemesanan cepat tanpa turun dari kendaraan. Area parkir kami juga sangat luas dan 100% Bebas Biaya Parkir.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
+                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                        <span><i class="fa-solid fa-credit-card text-coffee-500 mr-3"></i> Metode pembayaran apa saja yang diterima?</span>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-6 md:px-6 text-xs md:text-sm text-coffee-700 leading-relaxed border-t border-coffee-200/50 pt-4">
+                        Kami menerima Tunai, QRIS (Gopay, OVO, ShopeePay, Dana, M-Banking), Kartu Debit, Kartu Kredit, serta fitur Contactless Payment (NFC / Apple Pay).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Info Cepat & Reservasi -->
     <section id="info" class="py-16 md:py-24 bg-coffee-900 text-white relative overflow-hidden">
         <div class="absolute -top-40 -right-40 w-80 md:w-96 h-80 md:h-96 bg-coffee-700 rounded-full blur-[80px] md:blur-[100px] opacity-50"></div>
         <div class="absolute -bottom-40 -left-40 w-80 md:w-96 h-80 md:h-96 bg-coffee-800 rounded-full blur-[80px] md:blur-[100px] opacity-50"></div>
@@ -475,9 +736,15 @@
         </div>
     </footer>
 
-    <!-- THE JARVIS RECOMMENDATION: Floating WhatsApp Button -->
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Kembali ke atas" class="fixed bottom-24 right-6 md:bottom-28 md:right-10 bg-coffee-800/80 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-coffee-900 hover:scale-110 transition-all duration-300 z-40 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan!" 
        target="_blank" 
+       aria-label="Pesan via WhatsApp"
        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] hover:scale-110 transition-all duration-300 z-50 animate-pulse-slow">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -501,8 +768,10 @@
 
         revealElements.forEach(el => revealOnScroll.observe(el));
 
-        // 2. Navbar Glass Effect on Scroll
+        // 2. Navbar Glass Effect & Back-to-Top Button on Scroll
         const navbar = document.getElementById('navbar');
+        const backToTopBtn = document.getElementById('back-to-top');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('py-1', 'md:py-2');
@@ -515,7 +784,21 @@
                 navbar.firstElementChild.classList.remove('shadow-lg', 'bg-white/90');
                 navbar.firstElementChild.classList.add('glass');
             }
+
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            }
         });
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         // 3. Mobile Hamburger Menu Logic
         const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -542,6 +825,120 @@
         // Close menu when clicking any link
         mobileLinks.forEach(link => {
             link.addEventListener('click', toggleMenu);
+        });
+
+        // 4. Live Open/Closed Status Logic (WIB / Banda Aceh UTC+7)
+        function updateStoreStatus() {
+            // Get current time in Asia/Jakarta (WIB)
+            const now = new Date();
+            const wibString = now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" });
+            const wibDate = new Date(wibString);
+
+            const day = wibDate.getDay(); // 0: Sun, 1: Mon, ..., 5: Fri, 6: Sat
+            const hours = wibDate.getHours();
+            const minutes = wibDate.getMinutes();
+            const currentTimeMinutes = hours * 60 + minutes;
+
+            let isOpen = false;
+            let openTimeStr = "08:00";
+            let closeTimeStr = "23:30";
+
+            if (day === 5) { // Friday
+                openTimeStr = "14:00";
+                const openMinutes = 14 * 60;
+                const closeMinutes = 23 * 60 + 30;
+                if (currentTimeMinutes >= openMinutes && currentTimeMinutes < closeMinutes) {
+                    isOpen = true;
+                }
+            } else if (day === 0 || day === 6) { // Weekend (Sat, Sun)
+                openTimeStr = "07:00";
+                const openMinutes = 7 * 60;
+                const closeMinutes = 23 * 60 + 30;
+                if (currentTimeMinutes >= openMinutes && currentTimeMinutes < closeMinutes) {
+                    isOpen = true;
+                }
+            } else { // Mon - Thu
+                openTimeStr = "08:00";
+                const openMinutes = 8 * 60;
+                const closeMinutes = 23 * 60 + 30;
+                if (currentTimeMinutes >= openMinutes && currentTimeMinutes < closeMinutes) {
+                    isOpen = true;
+                }
+            }
+
+            const navDot = document.getElementById('nav-store-status-dot');
+            const navText = document.getElementById('nav-store-status-text');
+            const heroDot = document.getElementById('hero-store-status-dot');
+            const heroText = document.getElementById('hero-store-status-text');
+            const mobileDot = document.getElementById('mobile-store-status-dot');
+            const mobileText = document.getElementById('mobile-store-status-text');
+
+            if (isOpen) {
+                if (navDot) navDot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-pulse";
+                if (navText) navText.innerText = "Buka Sekarang";
+                if (heroDot) heroDot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-pulse";
+                if (heroText) heroText.innerText = `Buka Hari Ini (s/d ${closeTimeStr})`;
+                if (mobileDot) mobileDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse";
+                if (mobileText) mobileText.innerText = `Buka Sekarang (s/d ${closeTimeStr})`;
+            } else {
+                if (navDot) navDot.className = "w-2 h-2 rounded-full bg-rose-500";
+                if (navText) navText.innerText = "Tutup";
+                if (heroDot) heroDot.className = "w-2 h-2 rounded-full bg-rose-400";
+                if (heroText) heroText.innerText = `Tutup • Buka Jam ${openTimeStr}`;
+                if (mobileDot) mobileDot.className = "w-2.5 h-2.5 rounded-full bg-rose-400";
+                if (mobileText) mobileText.innerText = `Tutup • Buka Jam ${openTimeStr}`;
+            }
+        }
+
+        updateStoreStatus();
+        setInterval(updateStoreStatus, 60000);
+
+        // 6. FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.faq-icon');
+                const isOpen = !content.classList.contains('hidden');
+
+                // Close all other FAQ contents
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+                if (!isOpen) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+
+        // 5. Interactive Menu Category Filtering
+        const filterBtns = document.querySelectorAll('.menu-filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state on buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-coffee-800', 'text-white', 'shadow-md');
+                    b.classList.add('bg-coffee-50', 'text-coffee-800', 'hover:bg-coffee-100', 'border', 'border-coffee-200');
+                });
+
+                btn.classList.add('active', 'bg-coffee-800', 'text-white', 'shadow-md');
+                btn.classList.remove('bg-coffee-50', 'text-coffee-800', 'hover:bg-coffee-100', 'border', 'border-coffee-200');
+
+                const targetCategory = btn.getAttribute('data-category');
+
+                menuItems.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (targetCategory === 'all' || cardCategory === targetCategory) {
+                        card.style.display = 'flex';
+                        card.classList.add('animate-fadeIn');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>
