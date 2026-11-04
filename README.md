@@ -1,32 +1,51 @@
 # Hococafe Landing Page
 
-## Live Demo
-
-🌐 https://a5b40266.hococafe-landing-page.pages.dev
-
-Hococafe Landing Page — project by Nabil Aulia Dika (dezzorigin).
+Hococafe Landing Page — project oleh Nabil Aulia Dika (dezzorigin).
 
 ## Status Proyek
 
-**Awal / prototipe** _(belum ada indikator)_
+**Dalam pengembangan** _(README ada)_
 
-## Tech Stack
+## 🌐 Live Demo
+
+**https://a5b40266.hococafe-landing-page.pages.dev**
+
+## 📋 Tech Stack
 
 HTML/CSS/JavaScript
 
-## Struktur Proyek
+## 🏗️ Arsitektur
+
+```mermaid
+flowchart LR
+  U[Pengguna] --> B[Browser]
+  B --> S[Static Site]
+```
+
+## 📁 Struktur Proyek
 
 ```
+LICENSE
+PRD.md
+README.md
 index.html
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
-Buka file `index.html` di browser, atau serve folder dengan static server.
+```bash
+# Install dependencies
+npm install
 
-## Lisensi
+# Jalankan development server
+npm run dev
+```
 
-MIT — lihat file [LICENSE](./LICENSE).
+> Untuk project HTML/Python/Go, lihat instruksi di atas atau file konfigurasi.
+
+## 📄 Lisensi
+
+MIT — lihat [LICENSE](./LICENSE).
 
 ---
-_Dibuat dan dikelola oleh Nabil Aulia Dika. Kontribusi dan issue welcome._
+_Dikembangkan oleh **dezzorigin** (Nabil Aulia Dika)._
