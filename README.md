@@ -36,7 +36,7 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-Lalu buka http://localhost:8000.
+Lalu buka `http://localhost:8000`.
 
 ## Tech stack
 
