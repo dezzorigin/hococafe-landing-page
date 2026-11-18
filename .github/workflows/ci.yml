@@ -1,0 +1,48 @@
+name: CI
+
+# CI untuk landing page statis (tanpa build step):
+# 1. validate — html-validate atas index.html (struktur + a11y dasar)
+# 2. links — markdown-link-check atas README/PRD/CHANGELOG/docs
+# 3. smoke — pemeriksaan struktur & konsistensi konten (node, tanpa network)
+# Sengaja tanpa Lighthouse: halaman memakai Tailwind Play CDN + foto
+# Unsplash, skor performanya ditentukan CDN — bukan kode repo ini.
+# Lighthouse tetap dijalankan manual saat rilis (lihat docs/testing.md).
+
+on:
+  push:
+    branches: [main, feat/*, fix/*, chore/*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g html-validate@8
+      - run: html-validate index.html
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g markdown-link-check@3
+      - run: |
+          for f in README.md PRD.md CHANGELOG.md docs/architecture.md; do
+            markdown-link-check -q "$f"
+          done
+
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/smoke.mjs
