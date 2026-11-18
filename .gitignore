@@ -1,0 +1,12 @@
+# Hococafe Landing Page — .gitignore
+# Static site: tidak ada build step, tidak ada dependency.
+# Yang diabaikan: artefak lokal, hasil audit, dan file OS/editor.
+
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+node_modules/
+.lighthouseci/
+lighthouse-*.html
+lighthouse-*.json

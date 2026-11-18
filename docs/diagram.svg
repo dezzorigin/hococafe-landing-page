@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5c3a21"/>
+    </marker>
+  </defs>
+  <rect width="920" height="560" fill="#fdf8f5"/>
+  <text x="460" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#4a2f1d">Hoco Coffee — Arsitektur Landing Page</text>
+  <text x="460" y="56" text-anchor="middle" font-size="13" fill="#98583c">satu file statis · tanpa build · tanpa backend · semua dinamis dihitung di browser</text>
+
+  <!-- visitor -->
+  <rect x="30" y="110" width="150" height="64" rx="12" fill="#5c3a21"/>
+  <text x="105" y="136" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Pengunjung</text>
+  <text x="105" y="156" text-anchor="middle" font-size="12" fill="#eed8c8">browser apa pun</text>
+
+  <!-- pages -->
+  <rect x="250" y="96" width="200" height="92" rx="12" fill="#ffffff" stroke="#5c3a21" stroke-width="2"/>
+  <text x="350" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#4a2f1d">Cloudflare Pages</text>
+  <text x="350" y="142" text-anchor="middle" font-size="12" fill="#98583c">hococafe.pages.dev</text>
+  <text x="350" y="162" text-anchor="middle" font-size="12" fill="#98583c">index.html (±65 KB)</text>
+  <text x="350" y="180" text-anchor="middle" font-size="12" fill="#98583c">direct upload, tanpa build</text>
+
+  <!-- cdn -->
+  <rect x="520" y="96" width="180" height="92" rx="12" fill="#f8ece4" stroke="#d09f7e" stroke-width="1.5"/>
+  <text x="610" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#4a2f1d">CDN eksternal</text>
+  <text x="610" y="142" text-anchor="middle" font-size="12" fill="#7e4533">Tailwind Play · Fonts</text>
+  <text x="610" y="162" text-anchor="middle" font-size="12" fill="#7e4533">Font Awesome 6</text>
+  <text x="610" y="180" text-anchor="middle" font-size="12" fill="#7e4533">Unsplash (foto stok)</text>
+
+  <!-- browser js -->
+  <rect x="250" y="250" width="450" height="120" rx="12" fill="#ffffff" stroke="#5c3a21" stroke-width="2"/>
+  <text x="475" y="276" text-anchor="middle" font-size="14" font-weight="700" fill="#4a2f1d">JavaScript vanilla di browser (6 blok)</text>
+  <text x="475" y="300" text-anchor="middle" font-size="12" fill="#7e4533">1 reveal · 2 navbar/back-to-top · 3 menu mobile</text>
+  <text x="475" y="320" text-anchor="middle" font-size="12" fill="#7e4533">4 status buka/tutup (Intl, zona Asia/Jakarta)</text>
+  <text x="475" y="340" text-anchor="middle" font-size="12" fill="#7e4533">5 filter menu (data-category) · 6 FAQ accordion</text>
+  <text x="475" y="360" text-anchor="middle" font-size="12" fill="#98583c">tanpa framework · tanpa localStorage · tanpa fetch</text>
+
+  <!-- out -->
+  <rect x="30" y="430" width="200" height="92" rx="12" fill="#e1bfa6"/>
+  <text x="130" y="456" text-anchor="middle" font-size="14" font-weight="700" fill="#4a2f1d">Keluar: WhatsApp</text>
+  <text x="130" y="476" text-anchor="middle" font-size="12" fill="#5c3a21">wa.me/6281264065722</text>
+  <text x="130" y="496" text-anchor="middle" font-size="12" fill="#5c3a21">pesan &amp; reservasi (12 tautan)</text>
+  <text x="130" y="514" text-anchor="middle" font-size="12" fill="#5c3a21">satu-satunya jalur transaksi</text>
+
+  <rect x="360" y="430" width="200" height="92" rx="12" fill="#e1bfa6"/>
+  <text x="460" y="456" text-anchor="middle" font-size="14" font-weight="700" fill="#4a2f1d">Keluar: Google Maps</text>
+  <text x="460" y="476" text-anchor="middle" font-size="12" fill="#5c3a21">tombol "Rute ke Lokasi"</text>
+  <text x="460" y="496" text-anchor="middle" font-size="12" fill="#5c3a21">Jl. Seulanga, Lambhuk,</text>
+  <text x="460" y="514" text-anchor="middle" font-size="12" fill="#5c3a21">Banda Aceh 23118</text>
+
+  <rect x="690" y="430" width="200" height="92" rx="12" fill="#e1bfa6"/>
+  <text x="790" y="456" text-anchor="middle" font-size="14" font-weight="700" fill="#4a2f1d">Repo (open source)</text>
+  <text x="790" y="476" text-anchor="middle" font-size="12" fill="#5c3a21">github.com/dezzorigin/</text>
+  <text x="790" y="496" text-anchor="middle" font-size="12" fill="#5c3a21">hococafe-landing-page</text>
+  <text x="790" y="514" text-anchor="middle" font-size="12" fill="#5c3a21">logo di navbar &amp; footer</text>
+
+  <!-- arrows -->
+  <line x1="180" y1="142" x2="246" y2="142" stroke="#5c3a21" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="142" x2="516" y2="142" stroke="#d09f7e" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <line x1="350" y1="192" x2="350" y2="246" stroke="#5c3a21" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="300" y1="370" x2="180" y2="426" stroke="#5c3a21" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="475" y1="370" x2="460" y2="426" stroke="#5c3a21" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="370" x2="770" y2="426" stroke="#5c3a21" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

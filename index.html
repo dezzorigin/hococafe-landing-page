@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- Favicon: huruf H di cangkir kopi (inline SVG, tanpa file eksternal) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235c3a21'/%3E%3Ctext x='32' y='44' font-family='Georgia, serif' font-size='36' font-weight='bold' fill='%23fdf8f5' text-anchor='middle'%3EH.%3C/text%3E%3C/svg%3E">
+
     <!-- Primary Meta Tags -->
     <title>Hoco Coffee | Titik Temu Anda di Banda Aceh</title>
     <meta name="title" content="Hoco Coffee | Titik Temu Anda di Banda Aceh">
     <meta name="description" content="Spot WFC, nge-chill, dan quality time paling aesthetic di Banda Aceh. Tersedia ruang VIP, parkir luas, dan layanan drive-thru.">
-    
+
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hococafe.netlify.app/">
+    <meta property="og:url" content="https://hococafe.pages.dev/">
     <meta property="og:title" content="Hoco Coffee | Titik Temu Anda">
     <meta property="og:description" content="Spot WFC, nge-chill, dan quality time paling aesthetic di Banda Aceh. Pesan sekarang via WhatsApp!">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;q=80&amp;w=1200">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -52,11 +55,16 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fadeIn': 'fadeIn 0.4s ease-in-out',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(8px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -100,6 +108,10 @@
             transform: translateY(0);
         }
 
+        /* Reveal stagger delays (pengganti inline style) */
+        .reveal-delay-100 { transition-delay: 100ms; }
+        .reveal-delay-200 { transition-delay: 200ms; }
+
         /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.85);
@@ -121,14 +133,14 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-coffee-900/95 backdrop-blur-xl z-[60] transform -translate-y-full transition-transform duration-300 flex flex-col justify-center items-center gap-8 text-white">
-        <button id="close-menu" class="absolute top-6 right-6 text-3xl text-coffee-200 hover:text-white transition-colors" aria-label="Tutup Menu">
+        <button type="button" id="close-menu" class="absolute top-6 right-6 text-3xl text-coffee-200 hover:text-white transition-colors" aria-label="Tutup Menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <a href="#suasana" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Suasana</a>
         <a href="#menu" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Menu</a>
         <a href="#ulasan" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Ulasan</a>
         <a href="#faq" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">FAQ</a>
-        <a href="#info" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Info & Reservasi</a>
+        <a href="#info" class="mobile-link text-2xl font-serif text-coffee-100 hover:text-coffee-400 transition-colors">Info &amp; Reservasi</a>
 
         <!-- Live Status in Mobile Menu -->
         <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-xs font-medium border border-white/20">
@@ -138,6 +150,10 @@
 
         <a href="https://wa.me/6281264065722" target="_blank" class="mobile-link mt-2 bg-coffee-500 text-white px-8 py-3.5 rounded-full text-base font-semibold hover:bg-coffee-600 transition-all shadow-lg flex items-center gap-2">
             <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WA
+        </a>
+        <a href="https://github.com/dezzorigin/hococafe-landing-page" target="_blank" rel="noopener" class="mobile-link mt-2 text-coffee-300 text-sm hover:text-white transition-colors flex items-center gap-2">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            Lihat di GitHub
         </a>
     </div>
 
@@ -150,17 +166,17 @@
                 </span>
                 <span>Hoco<span class="text-coffee-500">.</span></span>
             </a>
-            
+
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 font-medium text-sm text-coffee-800">
                 <a href="#suasana" class="hover:text-coffee-500 transition-colors">Suasana</a>
                 <a href="#menu" class="hover:text-coffee-500 transition-colors">Menu</a>
                 <a href="#ulasan" class="hover:text-coffee-500 transition-colors">Ulasan</a>
                 <a href="#faq" class="hover:text-coffee-500 transition-colors">FAQ</a>
-                <a href="#info" class="hover:text-coffee-500 transition-colors">Info & Reservasi</a>
+                <a href="#info" class="hover:text-coffee-500 transition-colors">Info &amp; Reservasi</a>
             </div>
-            
-            <!-- Desktop Action & Status Badge -->
+
+            <!-- Desktop Action &amp; Status Badge -->
             <div class="hidden md:flex items-center gap-4">
                 <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-coffee-100/80 border border-coffee-200 text-xs font-semibold text-coffee-800">
                     <span id="nav-store-status-dot" class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -169,10 +185,13 @@
                 <a href="#info" class="bg-coffee-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-coffee-900 transition-all hover:shadow-lg flex items-center gap-2">
                     <i class="fa-regular fa-calendar-check text-xs"></i> Reservasi
                 </a>
+                <a href="https://github.com/dezzorigin/hococafe-landing-page" target="_blank" rel="noopener" aria-label="Lihat di GitHub" title="Lihat di GitHub" class="w-9 h-9 rounded-full border border-coffee-200 bg-white/80 text-coffee-800 flex items-center justify-center hover:bg-coffee-800 hover:text-white hover:border-coffee-800 transition-all">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="hamburger-btn" class="md:hidden text-coffee-800 text-2xl p-1" aria-label="Buka Menu">
+            <button type="button" id="hamburger-btn" class="md:hidden text-coffee-800 text-2xl p-1" aria-label="Buka Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -182,7 +201,7 @@
     <section class="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-24 pb-16">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000" alt="Cafe Background" class="w-full h-full object-cover scale-105 animate-pulse-slow" />
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;q=80&amp;w=2000" alt="Cafe Background" class="w-full h-full object-cover scale-105 animate-pulse-slow" >
             <div class="absolute inset-0 bg-gradient-to-b from-coffee-900/80 via-coffee-900/60 to-coffee-50"></div>
         </div>
 
@@ -197,17 +216,17 @@
                     <span id="hero-store-status-text">Buka Hari Ini</span>
                 </span>
             </div>
-            
+
             <!-- Highly Responsive Heading -->
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-[1.15] md:leading-tight drop-shadow-xl">
                 Lebih dari Sekadar Kopi.<br>
                 <span class="text-coffee-300 italic font-normal">Ini Titik Temu Anda.</span>
             </h1>
-            
+
             <p class="text-base sm:text-lg md:text-xl text-coffee-100 mb-8 sm:mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow px-2">
                 Hoco Coffee Lambhuk – Tempat WFC paling nyaman, ruang bersantai aesthetic, dan quality time hangat di jantung Banda Aceh.
             </p>
-            
+
             <!-- CTAs -->
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full px-4 sm:px-0 mb-12 sm:mb-16">
                 <a href="#menu" class="px-8 py-3.5 sm:py-4 bg-white text-coffee-900 rounded-full font-bold hover:bg-coffee-100 transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] w-full sm:w-auto text-sm sm:text-base flex items-center justify-center gap-2">
@@ -249,7 +268,7 @@
         </div>
     </section>
 
-    <!-- 2. Highlight Suasana & Layanan (Bento Grid Redesigned) -->
+    <!-- 2. Highlight Suasana &amp; Layanan (Bento Grid Redesigned) -->
     <section id="suasana" class="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
         <div class="text-center mb-10 md:mb-16 reveal">
             <span class="text-xs font-bold uppercase tracking-widest text-coffee-500 bg-coffee-100 px-3 py-1 rounded-full border border-coffee-200">Pengalaman Terbaik</span>
@@ -260,12 +279,12 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[220px] md:auto-rows-[260px]">
             <!-- Main Card: Aesthetic Vibe -->
             <div class="col-span-1 md:col-span-2 row-span-2 rounded-[2.5rem] overflow-hidden relative group reveal shadow-md hover:shadow-2xl transition-all duration-500">
-                <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=1000" alt="Cafe Atmosphere" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Cafe Atmosphere" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/90 via-coffee-900/40 to-transparent p-6 md:p-10 flex flex-col justify-end">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-medium w-max mb-3 border border-white/30">
-                        <i class="fa-solid fa-sparkles text-amber-300"></i> Atmosphere & Comfort
+                        <i class="fa-solid fa-sparkles text-amber-300"></i> Atmosphere &amp; Comfort
                     </span>
-                    <h3 class="text-white text-2xl md:text-4xl font-serif font-bold mb-3">Vibe Modern & Warm Aesthetic</h3>
+                    <h3 class="text-white text-2xl md:text-4xl font-serif font-bold mb-3">Vibe Modern &amp; Warm Aesthetic</h3>
                     <p class="text-coffee-200 text-xs md:text-sm leading-relaxed mb-4">Ruangan berpendingin udara yang sejuk, pencahayaan hangat romantis, serta playlist musik santai yang menemani setiap detik momen Anda.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="text-[10px] md:text-xs bg-white/10 backdrop-blur-md text-white px-2.5 py-1 rounded-lg border border-white/20">AC Sejuk</span>
@@ -303,8 +322,8 @@
                     <i class="fa-solid fa-square-parking"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg mb-1">Parkir Luas & Aman</h3>
-                    <p class="text-xs text-coffee-200 mb-2">Kapasitas mobil & motor sangat memadai dengan petugas penjaga parkir.</p>
+                    <h3 class="font-bold text-lg mb-1">Parkir Luas &amp; Aman</h3>
+                    <p class="text-xs text-coffee-200 mb-2">Kapasitas mobil &amp; motor sangat memadai dengan petugas penjaga parkir.</p>
                     <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-emerald-900/50 px-2.5 py-1 rounded-md border border-emerald-500/30">100% Gratis</span>
                 </div>
             </div>
@@ -336,7 +355,7 @@
                 <div>
                     <span class="text-xs font-bold uppercase tracking-widest text-coffee-500 bg-coffee-50 px-3 py-1 rounded-full border border-coffee-200">Cita Rasa Pilihan</span>
                     <h2 class="text-3xl md:text-5xl font-serif font-bold mt-2 text-coffee-900">Menu Rekomendasi</h2>
-                    <p class="text-coffee-600 text-sm md:text-base mt-1">Kurasi minuman espresso & makanan lezat favorit pengunjung Hoco Coffee.</p>
+                    <p class="text-coffee-600 text-sm md:text-base mt-1">Kurasi minuman espresso &amp; makanan lezat favorit pengunjung Hoco Coffee.</p>
                 </div>
                 <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20minta%20daftar%20menu%20lengkapnya%20dong!" target="_blank" class="hidden md:inline-flex items-center gap-2 text-coffee-800 font-bold hover:text-coffee-500 transition-colors bg-coffee-50 px-5 py-2.5 rounded-full border border-coffee-200 text-sm">
                     <i class="fa-brands fa-whatsapp text-green-600 text-base"></i> Minta Menu Lengkap PDF
@@ -345,19 +364,19 @@
 
             <!-- Category Filter Buttons -->
             <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-8 md:mb-12 reveal" id="menu-filter-container">
-                <button data-category="all" class="menu-filter-btn active px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-800 text-white shadow-md">
+                <button type="button" data-category="all" class="menu-filter-btn active px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-800 text-white shadow-md">
                     <i class="fa-solid fa-layer-group mr-1.5"></i> Semua
                 </button>
-                <button data-category="kopi" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                <button type="button" data-category="kopi" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
                     <i class="fa-solid fa-mug-hot mr-1.5 text-coffee-600"></i> Kopi
                 </button>
-                <button data-category="non-kopi" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                <button type="button" data-category="non-kopi" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
                     <i class="fa-solid fa-glass-water mr-1.5 text-amber-600"></i> Non-Kopi
                 </button>
-                <button data-category="makanan" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                <button type="button" data-category="makanan" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
                     <i class="fa-solid fa-utensils mr-1.5 text-orange-600"></i> Makanan
                 </button>
-                <button data-category="dessert" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
+                <button type="button" data-category="dessert" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-coffee-50 text-coffee-800 hover:bg-coffee-100 border border-coffee-200">
                     <i class="fa-solid fa-ice-cream mr-1.5 text-pink-600"></i> Dessert
                 </button>
             </div>
@@ -371,14 +390,14 @@
                         <span class="absolute top-4 right-4 z-10 bg-red-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
                             <i class="fa-solid fa-fire"></i> Best Seller
                         </span>
-                        <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&q=80&w=600" alt="Sanger Espresso Ice" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Sanger Espresso Ice" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif font-bold text-lg md:text-xl text-coffee-900 pr-2">Sanger Espresso Ice</h3>
                             <span class="font-bold text-coffee-600 bg-coffee-100/80 px-2.5 py-1 rounded-lg text-sm shrink-0">Rp 25k</span>
                         </div>
-                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Perpaduan klasik kopi sanger khas Aceh dengan sentuhan espresso modern yang segar & creamy.</p>
+                        <p class="text-xs md:text-sm text-coffee-600 mb-5 flex-grow leading-relaxed">Perpaduan klasik kopi sanger khas Aceh dengan sentuhan espresso modern yang segar &amp; creamy.</p>
                         <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan%20Sanger%20Espresso%20Ice%20dong!" target="_blank" class="flex items-center justify-center gap-2 text-center w-full py-2.5 border-2 border-coffee-800 text-coffee-800 rounded-xl hover:bg-coffee-800 hover:text-white transition-all text-sm font-bold mt-auto shadow-sm">
                             <i class="fa-brands fa-whatsapp text-base"></i> Pesan via WA
                         </a>
@@ -389,7 +408,7 @@
                 <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="kopi">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
                         <span class="absolute top-4 right-4 z-10 bg-amber-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">Favorit WFC</span>
-                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600" alt="Kopi Susu Aren" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Kopi Susu Aren" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
@@ -407,7 +426,7 @@
                 <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="dessert">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
                         <span class="absolute top-4 right-4 z-10 bg-coffee-800 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">Signature Dessert</span>
-                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600" alt="Brownies Ice Cream" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Brownies Ice Cream" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
@@ -424,7 +443,7 @@
                 <!-- Menu 4 -->
                 <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="makanan">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
-                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=600" alt="Nasi Goreng Kampung" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Nasi Goreng Kampung" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
@@ -441,7 +460,7 @@
                 <!-- Menu 5 -->
                 <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="makanan">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
-                        <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=600" alt="Mie Rebus Hoco" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Mie Rebus Hoco" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
@@ -458,7 +477,7 @@
                 <!-- Menu 6 -->
                 <div class="menu-item-card group rounded-3xl overflow-hidden bg-coffee-50 hover:shadow-2xl transition-all duration-300 border border-coffee-200/60 flex flex-col" data-category="non-kopi">
                     <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
-                        <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80&w=600" alt="Teh Premium" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Teh Premium" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-5 md:p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-start mb-2">
@@ -501,7 +520,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Tempat WFC paling tenang & nyaman di Banda Aceh. WiFi super kencang, colokan ada di mana-mana. Sangernya nagih banget!"</p>
+                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Tempat WFC paling tenang &amp; nyaman di Banda Aceh. WiFi super kencang, colokan ada di mana-mana. Sangernya nagih banget!"</p>
                     </div>
                     <div class="flex items-center gap-3 pt-4 border-t border-coffee-100">
                         <div class="w-10 h-10 rounded-full bg-coffee-200 font-bold text-coffee-800 flex items-center justify-center text-sm">
@@ -524,7 +543,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Vibenya dapet banget buat nongkrong sore atau malam. Parkiran luas mobil & motor aman. Dessert Brownies Ice Cream-nya wajib dicoba!"</p>
+                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Vibenya dapet banget buat nongkrong sore atau malam. Parkiran luas mobil &amp; motor aman. Dessert Brownies Ice Cream-nya wajib dicoba!"</p>
                     </div>
                     <div class="flex items-center gap-3 pt-4 border-t border-coffee-100">
                         <div class="w-10 h-10 rounded-full bg-coffee-300 font-bold text-coffee-900 flex items-center justify-center text-sm">
@@ -547,7 +566,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Layanan drive-thru sangat praktis pas buru-buru berangkat kantor! Baristanya ramah & pesanan selalu konsisten rasanya."</p>
+                        <p class="text-coffee-800 text-sm leading-relaxed mb-6 italic">"Layanan drive-thru sangat praktis pas buru-buru berangkat kantor! Baristanya ramah &amp; pesanan selalu konsisten rasanya."</p>
                     </div>
                     <div class="flex items-center gap-3 pt-4 border-t border-coffee-100">
                         <div class="w-10 h-10 rounded-full bg-coffee-800 font-bold text-white flex items-center justify-center text-sm">
@@ -575,8 +594,8 @@
             <div class="space-y-4 reveal" id="faq-accordion">
                 <!-- FAQ Item 1 -->
                 <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
-                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
-                        <span><i class="fa-solid fa-wifi text-coffee-500 mr-3"></i> Apakah tersedia WiFi & stop kontak untuk WFC?</span>
+                    <button type="button" class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                        <span><i class="fa-solid fa-wifi text-coffee-500 mr-3"></i> Apakah tersedia WiFi &amp; stop kontak untuk WFC?</span>
                         <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-6 md:px-6 text-xs md:text-sm text-coffee-700 leading-relaxed border-t border-coffee-200/50 pt-4">
@@ -586,7 +605,7 @@
 
                 <!-- FAQ Item 2 -->
                 <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
-                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                    <button type="button" class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
                         <span><i class="fa-solid fa-door-closed text-coffee-500 mr-3"></i> Bagaimana cara reservasi ruang VIP/Private?</span>
                         <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
                     </button>
@@ -597,8 +616,8 @@
 
                 <!-- FAQ Item 3 -->
                 <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
-                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
-                        <span><i class="fa-solid fa-car text-coffee-500 mr-3"></i> Apakah ada layanan Drive-Thru & Parkir Gratis?</span>
+                    <button type="button" class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                        <span><i class="fa-solid fa-car text-coffee-500 mr-3"></i> Apakah ada layanan Drive-Thru &amp; Parkir Gratis?</span>
                         <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-5 pb-6 md:px-6 text-xs md:text-sm text-coffee-700 leading-relaxed border-t border-coffee-200/50 pt-4">
@@ -608,7 +627,7 @@
 
                 <!-- FAQ Item 4 -->
                 <div class="border border-coffee-200 rounded-2xl overflow-hidden bg-coffee-50/50 transition-all">
-                    <button class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
+                    <button type="button" class="faq-toggle w-full p-5 md:p-6 text-left flex justify-between items-center font-bold text-coffee-900 text-base md:text-lg focus:outline-none">
                         <span><i class="fa-solid fa-credit-card text-coffee-500 mr-3"></i> Metode pembayaran apa saja yang diterima?</span>
                         <i class="fa-solid fa-chevron-down text-coffee-500 faq-icon transition-transform duration-300"></i>
                     </button>
@@ -620,7 +639,7 @@
         </div>
     </section>
 
-    <!-- 6. Info Cepat & Reservasi -->
+    <!-- 6. Info Cepat &amp; Reservasi -->
     <section id="info" class="py-16 md:py-24 bg-coffee-900 text-white relative overflow-hidden">
         <div class="absolute -top-40 -right-40 w-80 md:w-96 h-80 md:h-96 bg-coffee-700 rounded-full blur-[80px] md:blur-[100px] opacity-50"></div>
         <div class="absolute -bottom-40 -left-40 w-80 md:w-96 h-80 md:h-96 bg-coffee-800 rounded-full blur-[80px] md:blur-[100px] opacity-50"></div>
@@ -629,7 +648,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
                 <div class="reveal">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4 md:mb-6">Waktu Sibuk & Reservasi</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4 md:mb-6">Waktu Sibuk &amp; Reservasi</h2>
                     <p class="text-coffee-200 mb-6 md:mb-8 text-base md:text-lg font-light">
                         Suasana sangat dinamis di malam hari. Kami <strong class="text-white">sangat menyarankan reservasi</strong> untuk makan malam atau pertemuan penting. Biasanya terjadi antrean saat jam sibuk (19:00 - 22:00).
                     </p>
@@ -640,7 +659,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-base md:text-lg">Pembayaran Seamless</h4>
-                            <p class="text-xs md:text-sm text-coffee-200">Terima Kartu Kredit, Debit, QRIS, & NFC (Apple Pay/Google Pay).</p>
+                            <p class="text-xs md:text-sm text-coffee-200">Terima Kartu Kredit, Debit, QRIS, &amp; NFC (Apple Pay/Google Pay).</p>
                         </div>
                     </div>
 
@@ -675,7 +694,7 @@
         </div>
     </section>
 
-    <!-- 5. Footer & Lokasi -->
+    <!-- 5. Footer &amp; Lokasi -->
     <footer class="bg-[#2A1B12] text-coffee-200 py-12 md:py-16 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-12">
 
@@ -686,22 +705,25 @@
                 </a>
                 <p class="text-sm text-coffee-400 mb-6 max-w-xs text-center md:text-left">Spot WFC, nge-chill, dan quality time paling aesthetic di Banda Aceh.</p>
                 <div class="flex gap-4">
-                    <a href="https://instagram.com/hococoffeelambhuk" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coffee-500 hover:text-white transition-colors">
+                    <a href="https://instagram.com/hococoffeelambhuk" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coffee-500 hover:text-white transition-colors" aria-label="Instagram Hoco Coffee">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coffee-500 hover:text-white transition-colors">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coffee-500 hover:text-white transition-colors" aria-label="TikTok Hoco Coffee">
                         <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://github.com/dezzorigin/hococafe-landing-page" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coffee-500 hover:text-white transition-colors" aria-label="Lihat di GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                     </a>
                 </div>
             </div>
 
             <!-- Contact -->
-            <div class="reveal text-center md:text-left" style="transition-delay: 100ms;">
+            <div class="reveal reveal-delay-100 text-center md:text-left">
                 <h4 class="text-white font-bold mb-4">Kontak Kami</h4>
                 <ul class="space-y-3 text-sm inline-block text-left">
                     <li class="flex items-center gap-3">
                         <i class="fa-solid fa-phone text-coffee-500 w-4 text-center"></i>
-                        <a href="tel:+6281264065722" class="hover:text-white transition-colors">0812-6406-5722</a>
+                        <a href="tel:+6281264065722" class="hover:text-white transition-colors">0812&#8209;6406&#8209;5722</a>
                     </li>
                     <li class="flex items-center gap-3">
                         <i class="fa-brands fa-instagram text-coffee-500 w-4 text-center"></i>
@@ -715,7 +737,7 @@
             </div>
 
             <!-- Location -->
-            <div class="reveal text-center md:text-left" style="transition-delay: 200ms;">
+            <div class="reveal reveal-delay-200 text-center md:text-left">
                 <h4 class="text-white font-bold mb-4">Lokasi</h4>
                 <p class="text-sm mb-6 leading-relaxed inline-block text-left">
                     <i class="fa-solid fa-map-pin text-coffee-500 mr-2"></i>
@@ -724,7 +746,7 @@
                     <span class="ml-5">Aceh 23118</span>
                 </p>
                 <!-- Real Google Maps Button -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Hoco+Coffee+Lambhuk+Banda+Aceh" target="_blank" class="flex md:inline-flex items-center justify-center w-full md:w-auto px-6 bg-coffee-800 text-white py-3.5 md:py-3 rounded-lg md:rounded-xl hover:bg-coffee-700 transition-colors font-semibold gap-2 shadow-lg text-sm md:text-base">
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=Hoco+Coffee+Lambhuk+Banda+Aceh" target="_blank" class="flex md:inline-flex items-center justify-center w-full md:w-auto px-6 bg-coffee-800 text-white py-3.5 md:py-3 rounded-lg md:rounded-xl hover:bg-coffee-700 transition-colors font-semibold gap-2 shadow-lg text-sm md:text-base">
                     <i class="fa-solid fa-location-arrow"></i> Rute ke Lokasi
                 </a>
             </div>
@@ -737,13 +759,13 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Kembali ke atas" class="fixed bottom-24 right-6 md:bottom-28 md:right-10 bg-coffee-800/80 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-coffee-900 hover:scale-110 transition-all duration-300 z-40 opacity-0 pointer-events-none">
+    <button type="button" id="back-to-top" aria-label="Kembali ke atas" class="fixed bottom-24 right-6 md:bottom-28 md:right-10 bg-coffee-800/80 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-coffee-900 hover:scale-110 transition-all duration-300 z-40 opacity-0 pointer-events-none">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan!" 
-       target="_blank" 
+    <a href="https://wa.me/6281264065722?text=Halo%20Hoco%20Coffee,%20saya%20mau%20pesan!"
+       target="_blank"
        aria-label="Pesan via WhatsApp"
        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] hover:scale-110 transition-all duration-300 z-50 animate-pulse-slow">
         <i class="fa-brands fa-whatsapp"></i>
@@ -762,7 +784,7 @@
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
             });
         }, revealOptions);
 
@@ -821,22 +843,28 @@
 
         hamburgerBtn.addEventListener('click', toggleMenu);
         closeMenuBtn.addEventListener('click', toggleMenu);
-        
+
         // Close menu when clicking any link
         mobileLinks.forEach(link => {
             link.addEventListener('click', toggleMenu);
         });
 
         // 4. Live Open/Closed Status Logic (WIB / Banda Aceh UTC+7)
+        // Jam & hari diambil langsung dalam zona Asia/Jakarta lewat
+        // Intl.DateTimeFormat + formatToParts, jadi benar di browser
+        // pengunjung mana pun. (Cara lama — string tanggal lalu new Date(...)
+        // — menafsir string itu dalam zona lokal browser, jadi salah kalau
+        // pengunjung membuka halaman dari luar WIB.)
         function updateStoreStatus() {
-            // Get current time in Asia/Jakarta (WIB)
-            const now = new Date();
-            const wibString = now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" });
-            const wibDate = new Date(wibString);
-
-            const day = wibDate.getDay(); // 0: Sun, 1: Mon, ..., 5: Fri, 6: Sat
-            const hours = wibDate.getHours();
-            const minutes = wibDate.getMinutes();
+            const parts = new Intl.DateTimeFormat("en-US", {
+                timeZone: "Asia/Jakarta",
+                weekday: "short", hour: "numeric", minute: "numeric", hour12: false
+            }).formatToParts(new Date());
+            const get = (t) => { const p = parts.find((x) => x.type === t); return p ? p.value : ""; };
+            const dayMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+            const day = dayMap[get("weekday")]; // 0: Sun, 1: Mon, ..., 5: Fri, 6: Sat
+            const hours = parseInt(get("hour"), 10) % 24; // "24" tengah malam -> 0
+            const minutes = parseInt(get("minute"), 10);
             const currentTimeMinutes = hours * 60 + minutes;
 
             let isOpen = false;
