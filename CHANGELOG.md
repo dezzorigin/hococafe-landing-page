@@ -8,6 +8,12 @@ dark mode, perbaikan XSS) yang tidak pernah ada di repo ini — satu file HTML
 statis. Entri-entri itu dibuang pada v1.2.0; riwayat di bawah ini ditulis ulang
 dari isi repo dan git log yang sebenarnya.
 
+## [Unreleased]
+
+### Added
+- Meta Open Graph + Twitter Card lengkap (9 tag) di `index.html`, dengan
+  `og-image.png` 1200x630 — screenshot asli hero halaman ini, bukan gambar stok.
+
 ## [1.2.0] - 2026-11-18
 
 ### Added
